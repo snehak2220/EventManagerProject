@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Victoria Events-Signin</title>
+     <link rel="stylesheet" href="{% static 'css/signupin.css' %}">
+</head>
+<body>
+    <div class="form-box">
+        <form class="form" method="post">
+            {% csrf_token %}
+            <span class="title">Sign up</span>
+            <span class="subtitle">Create a free account with your email.</span>
+            <div class="form-container">
+            <input type="text" class="input" placeholder="User Name" name="username">
+                <input type="password" class="input" placeholder="Password" name="password">
+            <input type="password" class="input" placeholder="Confirm Password" name="cpassword"></div>
+            <button>Sign up</button>
+             {% if messages %}
+        {% for message in messages %}
+            <div>
+                <p style="color:red;front-size:10px;">{{ message }}</p>
+            </div>
+        {% endfor %}
+      {% endif %}
+        </form>
+        <div class="form-section">
+        <p>Have an account? <a href="/signin">Sign In</a> </p>
+        </div>
+
+    </div>
+</body>
+</html>
